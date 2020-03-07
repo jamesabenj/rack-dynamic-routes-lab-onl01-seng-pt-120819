@@ -3,7 +3,7 @@ class Application
      resp = Rack::Response.new
      req = Rack::Request.new(env)
 
-     if req.path=="/items/<ITEM NAME>"
+     if req.path.match(/items/<ITEM NAME>/)
       item = req.params["<ITEM NAME>"]
       @@items.each do |i|
         if i.name = item
