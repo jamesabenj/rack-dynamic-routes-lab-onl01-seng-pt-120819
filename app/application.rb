@@ -7,7 +7,7 @@ class Application
       item = req.params["<ITEM NAME>"]
       @@items.each do |i|
         if i.name = item
-        resp.write Item.find_by(name, "#{item}").price
+        resp.write i.price
       else
         resp.status = 400
         resp.write "Item not found"
