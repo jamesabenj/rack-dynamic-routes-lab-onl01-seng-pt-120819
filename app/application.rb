@@ -5,7 +5,7 @@ class Application
 
      if req.path=="/items/<ITEM NAME>"
        item = req.params["item"]
-       if @@items.include(item)
+       if @@items.include?(item)
        resp.write Item.find_by(name, "#{item}").price
      else
        resp.write "Route not found"
