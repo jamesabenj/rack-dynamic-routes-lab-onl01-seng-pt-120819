@@ -3,11 +3,10 @@ class Application
      resp = Rack::Response.new
      req = Rack::Request.new(env)
 
-     if req.path.match(/items/<ITEM NAME>/)
-      item = req.params["<ITEM NAME>"]
-      @@items.each do |i|
-        if i.name = item
-        resp.write i.price
+     if req.path.match(/items/)
+       item_name = req.path.split("/songs/").last
+       if @@items.find{|i| i.name == item_name}
+  
         end
       end
      else
