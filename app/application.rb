@@ -6,13 +6,13 @@ class Application
     if req.path.match(/items/)
       item_name = req.path.split("/songs/").last
       item = @@items.find{|i| i.name == item_name}
-      binding.pry
       if @@items.include?(item)
          item.price
       else
          resp.status = 400
          resp.write "Item not found"
       end
+      binding.pry
     else
        resp.write "Route not found"
        resp.status = 404
