@@ -5,8 +5,13 @@ class Application
 
      if req.path.match(/items/)
        item_name = req.path.split("/songs/").last
-       if @@items.find{|i| i.name == item_name}
-  
+       item = @@items.find{|i| i.name == item_name}
+       if @@items.include?(item)
+         item.price
+       else
+         resp.status = 400
+         resp.write "Item not found"
+
         end
       end
      else
