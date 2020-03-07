@@ -8,9 +8,7 @@ class Application
       @@items.each do |i|
         if i.name = item
         resp.write i.price
-      else
-        resp.status = 400
-        resp.write "Item not found"
+        end
       end
      else
        resp.write "Route not found"
