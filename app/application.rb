@@ -7,6 +7,7 @@ class Application
       item_name = req.path.split("/songs/").last
       item = @@items.find{|i| i.name == item_name}
       if @@items.include?(item)
+        binding.pry
          item.price
       else
          resp.status = 400
